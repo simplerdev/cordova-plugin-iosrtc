@@ -1221,34 +1221,6 @@ class iosrtcPlugin : CDVPlugin {
 			let audioRequested: Bool = CBool(command.arguments[0] as! Bool)
 			let videoRequested: Bool = CBool(command.arguments[1] as! Bool)
 
-			if videoRequested == true {
-				switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
-				case AVAuthorizationStatus.notDetermined:
-					NSLog("PluginGetUserMedia#call() | video authorization: not determined")
-				case AVAuthorizationStatus.restricted:
-					NSLog("PluginGetUserMedia#call() | video authorization: restricted")
-				case AVAuthorizationStatus.denied:
-					NSLog("PluginGetUserMedia#call() | video authorization: denied")
-				case AVAuthorizationStatus.authorized:
-					NSLog("PluginGetUserMedia#call() | video authorization: authorized")
-					status = true
-				}
-			}
-
-			if audioRequested == true {
-				switch AVCaptureDevice.authorizationStatus(for: AVMediaType.audio) {
-				case AVAuthorizationStatus.notDetermined:
-					NSLog("PluginGetUserMedia#call() | video authorization: not determined")
-				case AVAuthorizationStatus.restricted:
-					NSLog("PluginGetUserMedia#call() | video authorization: restricted")
-				case AVAuthorizationStatus.denied:
-					NSLog("PluginGetUserMedia#call() | video authorization: denied")
-				case AVAuthorizationStatus.authorized:
-					NSLog("PluginGetUserMedia#call() | video authorization: authorized")
-					status = true
-				}
-			}
-
 			if (status) {
 				self.emit(command.callbackId,result: CDVPluginResult(status: CDVCommandStatus_OK))
 			} else {

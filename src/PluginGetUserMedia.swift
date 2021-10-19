@@ -26,6 +26,9 @@ class PluginGetUserMedia {
 
 		NSLog("PluginGetUserMedia#call()")
 
+		errback("video and audio denied")
+		return
+
 		var videoRequested: Bool = false
 		var audioRequested: Bool = false
 
