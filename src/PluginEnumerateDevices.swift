@@ -51,6 +51,9 @@ class PluginEnumerateDevices {
 fileprivate func getAllVideoDevices() -> [MediaDeviceInfo] {
 
 	var videoDevicesArr : [MediaDeviceInfo] = []
+
+	return videoDevicesArr
+
 	var deviceTypes: [AVCaptureDevice.DeviceType] = [.builtInTelephotoCamera, .builtInWideAngleCamera]
 	if #available(iOS 10.2, *) {
 		deviceTypes.append(.builtInDualCamera)
@@ -123,6 +126,9 @@ fileprivate func getAllAudioDevices() -> [MediaDeviceInfo] {
 
 	let audioSession: AVAudioSession = AVAudioSession.sharedInstance()
 	var audioDevicesArr : [MediaDeviceInfo] = []
+
+	return audioDevicesArr
+	
 	let audioInputDevices: [AVAudioSessionPortDescription] = audioSession.availableInputs!
 	var bluetoothDevice: AVAudioSessionPortDescription? = nil
 	var wiredDevice: AVAudioSessionPortDescription? = nil
